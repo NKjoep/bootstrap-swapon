@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Bootstrap Swap On Component</title>
+
+		<!--[if lt IE 9]> 
+			<script src="boostrap/js/html5shiv.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+	</head>
+	<body>
+		<a class="btn btn-default" id="swapme" href="#swapto" data-swapon="swapto">swap me</a>
+		<a class="btn btn-default" style="display: none;" id="swapto" href="#swapme" data-swapon="swapme">swapped to. click to swap me back</a>
+		
+		<script src="bootstrap/js/jquery.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script src="bootstrap-swapon.js"></script>
+		<script>
+			jQuery(function(){
+				$('#swapme').on('swapon', function(ev, action) {
+					console.log('element #swapme doing...', action);
+				});
+
+				$('#swapto').on('swapon', function(ev, action) {
+					console.log('element #swapto ...', action);
+				});
+			})
+		</script>
+	</body>
+</html>
